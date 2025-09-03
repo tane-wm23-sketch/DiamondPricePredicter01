@@ -22,11 +22,12 @@ x = st.number_input('X (length in mm)', min_value=0.0, max_value=20.0, value=3.9
 y = st.number_input('Y (width in mm)', min_value=0.0, max_value=20.0, value=3.98)
 z = st.number_input('Z (depth in mm)', min_value=0.0, max_value=20.0, value=2.43)
 
-if st.button('Predict Price'):
+if st.button('Preict Price'):
     input_data = pd.DataFrame([[carat, cut, color, clarity, x, y, z]],
-                              columns=['carat', 'cut', 'color', 'table', 'x', 'y', 'z'])
+                          columns=['carat', 'cut', 'color', 'clarity', 'x', 'y', 'z'])
     input_data['volume'] = input_data['x'] * input_data['y'] * input_data['z']
 
     predicted_log_price = model.predict(input_data)
     predicted_price = np.exp(predicted_log_price)
     st.success(f'Predicted Diamond Price: ${predicted_price[0]:.2f}')
+
