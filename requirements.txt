@@ -3,3 +3,4 @@ pandas
 joblib==1.4.2
 numpy
 scikit-learn==1.7.1
+protobuf==3.20.3
